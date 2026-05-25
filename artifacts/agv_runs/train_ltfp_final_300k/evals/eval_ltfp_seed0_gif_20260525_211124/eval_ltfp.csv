@@ -1,0 +1,2 @@
+﻿seed,steps,completed_tasks,delivered_to_goal,generated_tasks,mean_agent_reward,blocked_moves,policy_actions,forced_toggles,gif_path
+0,5000,1552,1569,1592,116.65949971503966,6845,146867,3133,artifacts\agv_runs\train_ltfp_final_300k\evals\eval_ltfp_seed0_gif_20260525_211124\gifs\ltfp_seed0.gif

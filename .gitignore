@@ -1,0 +1,29 @@
+# Python cache and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Generated experiment outputs.
+# Only the two final submission result folders are versioned.
+artifacts/*
+!artifacts/agv_runs/
+artifacts/agv_runs/*
+!artifacts/agv_runs/eval_planner_baseline/
+!artifacts/agv_runs/eval_planner_baseline/**
+!artifacts/agv_runs/train_ltfp_final_300k/
+!artifacts/agv_runs/train_ltfp_final_300k/**
+
+# Local cloned upstream repositories not bundled with this submission.
+learn-to-follow/
+robotic-warehouse/
+
+# Editor and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

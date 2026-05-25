@@ -1,0 +1,17 @@
+name: agv-drl-rware
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy>=1.24
+  - gymnasium>=0.29
+  - networkx
+  - pyglet<2
+  - six
+  - pillow
+  - pytorch
+  - cpuonly
+  - pip:
+      - -e ./robotic-warehouse

@@ -1,0 +1,24 @@
+﻿{
+  "controller": "ltfp",
+  "policy_seed": 0,
+  "checkpoint": "artifacts\\agv_runs\\train_ltfp_final_300k\\checkpoints\\ltfp_latest.pt",
+  "seeds": [
+    0
+  ],
+  "mean_completed_tasks": 1552.0,
+  "std_completed_tasks": 0.0,
+  "rows": [
+    {
+      "seed": 0,
+      "steps": 5000,
+      "completed_tasks": 1552,
+      "delivered_to_goal": 1569,
+      "generated_tasks": 1592,
+      "mean_agent_reward": 116.65949971503966,
+      "blocked_moves": 6845,
+      "policy_actions": 146867,
+      "forced_toggles": 3133,
+      "gif_path": "artifacts\\agv_runs\\train_ltfp_final_300k\\evals\\eval_ltfp_seed0_gif_20260525_211124\\gifs\\ltfp_seed0.gif"
+    }
+  ]
+}

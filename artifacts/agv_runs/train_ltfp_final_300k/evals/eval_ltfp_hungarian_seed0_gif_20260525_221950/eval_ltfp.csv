@@ -1,0 +1,2 @@
+﻿seed,steps,completed_tasks,delivered_to_goal,generated_tasks,mean_agent_reward,blocked_moves,policy_actions,forced_toggles,gif_path
+0,5000,1550,1560,1590,116.68466637840805,6486,146872,3128,artifacts\agv_runs\train_ltfp_final_300k\evals\eval_ltfp_hungarian_seed0_gif_20260525_221950\gifs\ltfp_seed0.gif

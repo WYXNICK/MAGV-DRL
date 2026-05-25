@@ -1,0 +1,24 @@
+﻿{
+  "controller": "planner",
+  "policy_seed": 0,
+  "checkpoint": null,
+  "seeds": [
+    0
+  ],
+  "mean_completed_tasks": 518.0,
+  "std_completed_tasks": 0.0,
+  "rows": [
+    {
+      "seed": 0,
+      "steps": 5000,
+      "completed_tasks": 518,
+      "delivered_to_goal": 518,
+      "generated_tasks": 558,
+      "mean_agent_reward": 32.88216644946176,
+      "blocked_moves": 7315,
+      "policy_actions": 0,
+      "forced_toggles": 0,
+      "gif_path": "artifacts\\agv_runs\\eval_planner_baseline\\gifs\\planner_seed0.gif"
+    }
+  ]
+}

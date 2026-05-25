@@ -1,0 +1,18 @@
+name: ltf-rware
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - numpy=1.23.1
+  - gymnasium>=0.29
+  - networkx
+  - pyglet<2
+  - six
+  - pillow
+  - pytorch<2.0
+  - cpuonly
+  - pip:
+      - -e ./robotic-warehouse
+      - onnxruntime
