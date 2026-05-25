@@ -1,10 +1,18 @@
-# Multi-AGV RWARE Learn-to-Follow PPO 实现说明
+# MAGV-DRL: Multi-AGV RWARE Learn-to-Follow PPO
 
-本文说明当前 `agv_drl` 的正式实现。目标是在 `robotic-warehouse` / RWARE 环境中，让 30 台 AGV 在随机任务请求下完成协同调度和三阶段运输闭环：
+本文说明当前 `agv_drl` 的实现方案、任务定义、训练设置和结果文件。项目目标是在 `robotic-warehouse` / RWARE 环境中，让 30 台 AGV 在随机任务请求下完成协同调度和三阶段运输闭环：
 
 ```text
 前往货架 -> 驮起货架并送到目标工作站 -> 驮着同一货架返回原始库位并卸货 -> 执行下一任务
 ```
+
+## 文档导航
+
+- 运行命令和环境安装步骤见 [TUTORIAL.md](TUTORIAL.md)。
+- 本文重点解释实现思路、任务规则、训练地图、调度算法、PPO follower 和结果指标。
+- 最终结果目录保存在 `artifacts/agv_runs/eval_planner_baseline/` 和 `artifacts/agv_runs/train_ltfp_final_300k/`。
+
+## 外部依赖
 
 本项目只提交自己的算法代码、地图、配置和结果文件，不提交外部 `robotic-warehouse` 源码。运行前需要在项目根目录单独下载官方 RWARE 仓库：
 
@@ -373,32 +381,3 @@ evals/
 ```
 
 其中 `checkpoints/ltfp_latest.pt` 是最终模型权重；`evals/` 中保存了使用该模型的评测 CSV、summary、step logs 和 GIF。单 seed 评测结果显示 LTF-PPO 比 planner baseline 完成更多闭环任务，说明局部 follower 对拥堵跟随和执行效率有提升。
-
-## 13. 上传范围
-
-建议提交到 GitHub：
-
-```text
-agv_drl/
-maps/
-artifacts/agv_runs/eval_planner_baseline/
-artifacts/agv_runs/train_ltfp_final_300k/
-environment.yml
-environment_ltf_rware.yml
-实现说明.md
-运行教程.md
-.gitignore
-```
-
-不提交：
-
-```text
-robotic-warehouse/
-learn-to-follow/
-其它 artifacts/agv_runs/* 结果目录
-__pycache__/
-*.pyc
-.venv/
-```
-
-`robotic-warehouse` 需要按运行教程单独 clone 到项目根目录。
