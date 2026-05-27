@@ -1,0 +1,16 @@
+# Core numerical and RL runtime.
+numpy>=1.24,<2.0
+torch>=2.1,<2.6
+
+# RWARE / robotic-warehouse runtime dependencies.
+gymnasium>=0.29,<1.0
+networkx>=3.0,<4.0
+pyglet>=1.5,<2.0
+six>=1.16,<2.0
+
+# GIF export for evaluation visualization.
+Pillow>=10.0,<12.0
+
+# Local RWARE environment. Clone https://github.com/semitable/robotic-warehouse
+# into ./robotic-warehouse before running pip install -r requirements.txt.
+-e ./robotic-warehouse
