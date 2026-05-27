@@ -9,14 +9,20 @@ venv/
 env/
 
 # Generated experiment outputs.
-# Only the two final submission result folders are versioned.
+# Keep only selected submission outputs, tuning summaries, and final figures.
 artifacts/*
+!artifacts/figures/
+!artifacts/figures/**
 !artifacts/agv_runs/
 artifacts/agv_runs/*
 !artifacts/agv_runs/eval_planner_baseline/
 !artifacts/agv_runs/eval_planner_baseline/**
+!artifacts/agv_runs/eval_planner_5seeds/
+!artifacts/agv_runs/eval_planner_5seeds/**
 !artifacts/agv_runs/train_ltfp_final_300k/
 !artifacts/agv_runs/train_ltfp_final_300k/**
+!artifacts/agv_runs/tuning_batch/
+!artifacts/agv_runs/tuning_batch/**
 
 # Local cloned upstream repositories not bundled with this submission.
 learn-to-follow/

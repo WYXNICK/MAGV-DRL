@@ -1,0 +1,22 @@
+{
+  "controller": "ltfp",
+  "checkpoint": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_entropy_high\\checkpoints\\ltfp_latest.pt",
+  "device": "cpu",
+  "seeds": "0,1,2,3,4",
+  "horizon": 5000,
+  "agents": 30,
+  "request_queue_size": 10,
+  "sensor_range": 2,
+  "dynamic_cost_weight": 0.75,
+  "layout_file": "E:\\master\\\u8bfe\u7a0b\\\u6df1\u5ea6\u5f3a\u5316\u5b66\u4e60\u4e0e\u51b3\u7b56\u7cfb\u7edf\u8bbe\u8ba1\u65b9\u6cd5\\group_project\\maps\\course_map.txt",
+  "runs_root": "artifacts\\agv_runs",
+  "results_root": null,
+  "run_name": "eval_tune_entropy_high_5seeds_gif",
+  "run_dir": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_entropy_high\\evals\\eval_tune_entropy_high_5seeds_gif_20260527_170921",
+  "policy_seed": 0,
+  "no_step_log": false,
+  "render": true,
+  "render_every": 1,
+  "save_gif": true,
+  "gif_frame_ms": 80
+}

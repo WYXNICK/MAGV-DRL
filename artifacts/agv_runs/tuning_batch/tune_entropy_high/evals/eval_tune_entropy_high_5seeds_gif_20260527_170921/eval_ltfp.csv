@@ -1,0 +1,6 @@
+seed,steps,completed_tasks,delivered_to_goal,generated_tasks,mean_agent_reward,blocked_moves,policy_actions,forced_toggles,gif_path
+0,5000,1534,1548,1574,117.73566632556418,3916,146904,3096,artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_high\evals\eval_tune_entropy_high_5seeds_gif_20260527_170921\gifs\ltfp_seed0.gif
+1,5000,1522,1537,1561,116.22949968360287,4051,146929,3071,artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_high\evals\eval_tune_entropy_high_5seeds_gif_20260527_170921\gifs\ltfp_seed1.gif
+2,5000,1522,1535,1562,116.3061663351177,4511,146928,3072,artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_high\evals\eval_tune_entropy_high_5seeds_gif_20260527_170921\gifs\ltfp_seed2.gif
+3,5000,1537,1548,1577,118.75566629819805,3655,146898,3102,artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_high\evals\eval_tune_entropy_high_5seeds_gif_20260527_170921\gifs\ltfp_seed3.gif
+4,5000,1546,1564,1586,118.99033298159483,3758,146880,3120,artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_high\evals\eval_tune_entropy_high_5seeds_gif_20260527_170921\gifs\ltfp_seed4.gif

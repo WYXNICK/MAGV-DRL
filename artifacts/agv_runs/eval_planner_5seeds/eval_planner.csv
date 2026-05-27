@@ -1,0 +1,6 @@
+seed,steps,completed_tasks,delivered_to_goal,generated_tasks,mean_agent_reward,blocked_moves,policy_actions,forced_toggles,gif_path
+0,5000,219,219,259,10.115666457956346,4598,0,0,artifacts\agv_runs\eval_planner_5seeds_20260527_101234\gifs\planner_seed0.gif
+1,5000,510,510,550,31.666333134596545,7450,0,0,artifacts\agv_runs\eval_planner_5seeds_20260527_101234\gifs\planner_seed1.gif
+2,5000,188,188,228,4.297499846686454,9470,0,0,artifacts\agv_runs\eval_planner_5seeds_20260527_101234\gifs\planner_seed2.gif
+3,5000,645,645,685,43.99533308581061,6475,0,0,artifacts\agv_runs\eval_planner_5seeds_20260527_101234\gifs\planner_seed3.gif
+4,5000,363,363,403,19.375666480363968,8438,0,0,artifacts\agv_runs\eval_planner_5seeds_20260527_101234\gifs\planner_seed4.gif

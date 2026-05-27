@@ -1,0 +1,94 @@
+command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.learning.train_ltf_ppo --total-steps 300000 --agents 30 --horizon 5000 --request-queue-size 10 --training-layout-count 1 --regenerate-training-layout --learning-rate 2.5e-4 --entropy-coef 0.035 --waypoint-reward 0.03 --active-wait-penalty -0.02 --rollout-steps 128 --minibatch-size 1024 --run-dir artifacts\agv_runs\tuning_batch_20260527_122936\tune_map_1layout
+
+C:\Users\WYX\.conda\envs\agv-drl-rware\Lib\site-packages\gymnasium\spaces\box.py:231: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\WYX\.conda\envs\agv-drl-rware\Lib\site-packages\gymnasium\spaces\box.py:297: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\WYX\.conda\envs\agv-drl-rware\Lib\site-packages\gymnasium\spaces\box.py:231: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\WYX\.conda\envs\agv-drl-rware\Lib\site-packages\gymnasium\spaces\box.py:297: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+Training run directory: artifacts\agv_runs\tuning_batch_20260527_122936\tune_map_1layout
+Training layout[0]: E:\master\�γ�\���ǿ��ѧϰ�����ϵͳ��Ʒ���\group_project\maps\train_maps\train_map_similar_00.txt (37x28, shelves=240, goals=10)
+update=1 env_steps=128 agent_steps=3840 episode=0 ep_completed=0 total_completed=0 loss=-0.0720 reference_match=0.166 wait_rate=0.276
+update=2 env_steps=256 agent_steps=7680 episode=0 ep_completed=0 total_completed=0 loss=-0.0743 reference_match=0.219 wait_rate=0.215
+update=3 env_steps=384 agent_steps=11520 episode=0 ep_completed=0 total_completed=0 loss=-0.0738 reference_match=0.250 wait_rate=0.186
+update=4 env_steps=512 agent_steps=15360 episode=0 ep_completed=0 total_completed=0 loss=-0.0681 reference_match=0.284 wait_rate=0.166
+update=5 env_steps=640 agent_steps=19200 episode=0 ep_completed=0 total_completed=0 loss=-0.0654 reference_match=0.347 wait_rate=0.133
+update=6 env_steps=768 agent_steps=23040 episode=0 ep_completed=1 total_completed=1 loss=-0.0651 reference_match=0.413 wait_rate=0.105
+update=7 env_steps=896 agent_steps=26880 episode=0 ep_completed=9 total_completed=9 loss=-0.0503 reference_match=0.485 wait_rate=0.087
+update=8 env_steps=1024 agent_steps=30720 episode=0 ep_completed=33 total_completed=33 loss=-0.0350 reference_match=0.584 wait_rate=0.057
+update=9 env_steps=1152 agent_steps=34560 episode=0 ep_completed=60 total_completed=60 loss=-0.0258 reference_match=0.692 wait_rate=0.047
+update=10 env_steps=1280 agent_steps=38400 episode=0 ep_completed=86 total_completed=86 loss=-0.0196 reference_match=0.747 wait_rate=0.033
+update=11 env_steps=1408 agent_steps=42240 episode=0 ep_completed=118 total_completed=118 loss=-0.0076 reference_match=0.805 wait_rate=0.028
+update=12 env_steps=1536 agent_steps=46080 episode=0 ep_completed=149 total_completed=149 loss=-0.0040 reference_match=0.841 wait_rate=0.022
+update=13 env_steps=1664 agent_steps=49920 episode=0 ep_completed=181 total_completed=181 loss=0.0034 reference_match=0.855 wait_rate=0.018
+update=14 env_steps=1792 agent_steps=53760 episode=0 ep_completed=212 total_completed=212 loss=-0.0006 reference_match=0.732 wait_rate=0.021
+update=15 env_steps=1920 agent_steps=57600 episode=0 ep_completed=230 total_completed=230 loss=-0.0032 reference_match=0.617 wait_rate=0.040
+update=16 env_steps=2048 agent_steps=61440 episode=0 ep_completed=241 total_completed=241 loss=0.0022 reference_match=0.568 wait_rate=0.039
+update=17 env_steps=2176 agent_steps=65280 episode=0 ep_completed=278 total_completed=278 loss=0.0089 reference_match=0.892 wait_rate=0.018
+update=18 env_steps=2304 agent_steps=69120 episode=0 ep_completed=313 total_completed=313 loss=-0.0003 reference_match=0.893 wait_rate=0.019
+update=19 env_steps=2432 agent_steps=72960 episode=0 ep_completed=350 total_completed=350 loss=-0.0087 reference_match=0.890 wait_rate=0.017
+update=20 env_steps=2560 agent_steps=76800 episode=0 ep_completed=389 total_completed=389 loss=-0.0026 reference_match=0.905 wait_rate=0.015
+update=21 env_steps=2688 agent_steps=80640 episode=0 ep_completed=426 total_completed=426 loss=-0.0046 reference_match=0.914 wait_rate=0.014
+update=22 env_steps=2816 agent_steps=84480 episode=0 ep_completed=467 total_completed=467 loss=-0.0022 reference_match=0.925 wait_rate=0.011
+update=23 env_steps=2944 agent_steps=88320 episode=0 ep_completed=509 total_completed=509 loss=-0.0011 reference_match=0.921 wait_rate=0.008
+update=24 env_steps=3072 agent_steps=92160 episode=0 ep_completed=549 total_completed=549 loss=-0.0013 reference_match=0.898 wait_rate=0.007
+update=25 env_steps=3200 agent_steps=96000 episode=0 ep_completed=587 total_completed=587 loss=-0.0008 reference_match=0.908 wait_rate=0.010
+update=26 env_steps=3328 agent_steps=99840 episode=0 ep_completed=630 total_completed=630 loss=-0.0003 reference_match=0.901 wait_rate=0.011
+update=27 env_steps=3456 agent_steps=103680 episode=0 ep_completed=670 total_completed=670 loss=-0.0030 reference_match=0.921 wait_rate=0.010
+update=28 env_steps=3584 agent_steps=107520 episode=0 ep_completed=708 total_completed=708 loss=-0.0015 reference_match=0.910 wait_rate=0.011
+update=29 env_steps=3712 agent_steps=111360 episode=0 ep_completed=750 total_completed=750 loss=0.0006 reference_match=0.897 wait_rate=0.012
+update=30 env_steps=3840 agent_steps=115200 episode=0 ep_completed=789 total_completed=789 loss=0.0009 reference_match=0.918 wait_rate=0.007
+update=31 env_steps=3968 agent_steps=119040 episode=0 ep_completed=825 total_completed=825 loss=-0.0017 reference_match=0.913 wait_rate=0.011
+update=32 env_steps=4096 agent_steps=122880 episode=0 ep_completed=867 total_completed=867 loss=0.0012 reference_match=0.931 wait_rate=0.007
+update=33 env_steps=4224 agent_steps=126720 episode=0 ep_completed=913 total_completed=913 loss=-0.0005 reference_match=0.925 wait_rate=0.011
+update=34 env_steps=4352 agent_steps=130560 episode=0 ep_completed=958 total_completed=958 loss=-0.0008 reference_match=0.931 wait_rate=0.008
+update=35 env_steps=4480 agent_steps=134400 episode=0 ep_completed=993 total_completed=993 loss=0.0129 reference_match=0.936 wait_rate=0.009
+update=36 env_steps=4608 agent_steps=138240 episode=0 ep_completed=1021 total_completed=1021 loss=0.0152 reference_match=0.859 wait_rate=0.017
+update=37 env_steps=4736 agent_steps=142080 episode=0 ep_completed=1045 total_completed=1045 loss=0.0131 reference_match=0.670 wait_rate=0.042
+update=38 env_steps=4864 agent_steps=145920 episode=0 ep_completed=1059 total_completed=1059 loss=0.0007 reference_match=0.480 wait_rate=0.073
+update=39 env_steps=4992 agent_steps=149760 episode=0 ep_completed=1068 total_completed=1068 loss=0.0174 reference_match=0.468 wait_rate=0.075
+update=40 env_steps=5000 agent_steps=150000 episode=1 ep_completed=0 total_completed=1070 loss=0.8130 reference_match=0.717 wait_rate=0.046
+update=41 env_steps=5128 agent_steps=153840 episode=1 ep_completed=26 total_completed=1096 loss=0.0232 reference_match=0.900 wait_rate=0.016
+update=42 env_steps=5256 agent_steps=157680 episode=1 ep_completed=64 total_completed=1134 loss=0.0066 reference_match=0.917 wait_rate=0.012
+update=43 env_steps=5384 agent_steps=161520 episode=1 ep_completed=100 total_completed=1170 loss=0.0023 reference_match=0.907 wait_rate=0.011
+update=44 env_steps=5512 agent_steps=165360 episode=1 ep_completed=146 total_completed=1216 loss=0.0026 reference_match=0.915 wait_rate=0.010
+update=45 env_steps=5640 agent_steps=169200 episode=1 ep_completed=186 total_completed=1256 loss=0.0007 reference_match=0.923 wait_rate=0.009
+update=46 env_steps=5768 agent_steps=173040 episode=1 ep_completed=230 total_completed=1300 loss=0.0031 reference_match=0.916 wait_rate=0.009
+update=47 env_steps=5896 agent_steps=176880 episode=1 ep_completed=268 total_completed=1338 loss=0.0043 reference_match=0.918 wait_rate=0.008
+update=48 env_steps=6024 agent_steps=180720 episode=1 ep_completed=307 total_completed=1377 loss=0.0019 reference_match=0.916 wait_rate=0.005
+update=49 env_steps=6152 agent_steps=184560 episode=1 ep_completed=345 total_completed=1415 loss=0.0009 reference_match=0.929 wait_rate=0.005
+update=50 env_steps=6280 agent_steps=188400 episode=1 ep_completed=384 total_completed=1454 loss=-0.0003 reference_match=0.923 wait_rate=0.008
+update=51 env_steps=6408 agent_steps=192240 episode=1 ep_completed=421 total_completed=1491 loss=-0.0003 reference_match=0.920 wait_rate=0.008
+update=52 env_steps=6536 agent_steps=196080 episode=1 ep_completed=464 total_completed=1534 loss=0.0004 reference_match=0.933 wait_rate=0.010
+update=53 env_steps=6664 agent_steps=199920 episode=1 ep_completed=505 total_completed=1575 loss=0.0008 reference_match=0.924 wait_rate=0.009
+update=54 env_steps=6792 agent_steps=203760 episode=1 ep_completed=547 total_completed=1617 loss=0.0023 reference_match=0.920 wait_rate=0.010
+update=55 env_steps=6920 agent_steps=207600 episode=1 ep_completed=590 total_completed=1660 loss=0.0018 reference_match=0.930 wait_rate=0.008
+update=56 env_steps=7048 agent_steps=211440 episode=1 ep_completed=630 total_completed=1700 loss=0.0019 reference_match=0.930 wait_rate=0.005
+update=57 env_steps=7176 agent_steps=215280 episode=1 ep_completed=674 total_completed=1744 loss=0.0028 reference_match=0.940 wait_rate=0.004
+update=58 env_steps=7304 agent_steps=219120 episode=1 ep_completed=716 total_completed=1786 loss=0.0033 reference_match=0.930 wait_rate=0.005
+update=59 env_steps=7432 agent_steps=222960 episode=1 ep_completed=753 total_completed=1823 loss=0.0026 reference_match=0.935 wait_rate=0.007
+update=60 env_steps=7560 agent_steps=226800 episode=1 ep_completed=790 total_completed=1860 loss=0.0045 reference_match=0.945 wait_rate=0.004
+update=61 env_steps=7688 agent_steps=230640 episode=1 ep_completed=835 total_completed=1905 loss=0.0046 reference_match=0.927 wait_rate=0.005
+update=62 env_steps=7816 agent_steps=234480 episode=1 ep_completed=870 total_completed=1940 loss=0.0043 reference_match=0.936 wait_rate=0.003
+update=63 env_steps=7944 agent_steps=238320 episode=1 ep_completed=917 total_completed=1987 loss=-0.0008 reference_match=0.921 wait_rate=0.005
+update=64 env_steps=8072 agent_steps=242160 episode=1 ep_completed=956 total_completed=2026 loss=0.0028 reference_match=0.916 wait_rate=0.007
+update=65 env_steps=8200 agent_steps=246000 episode=1 ep_completed=991 total_completed=2061 loss=0.0154 reference_match=0.900 wait_rate=0.009
+update=66 env_steps=8328 agent_steps=249840 episode=1 ep_completed=1017 total_completed=2087 loss=0.0215 reference_match=0.807 wait_rate=0.017
+update=67 env_steps=8456 agent_steps=253680 episode=1 ep_completed=1060 total_completed=2130 loss=0.0081 reference_match=0.934 wait_rate=0.006
+update=68 env_steps=8584 agent_steps=257520 episode=1 ep_completed=1100 total_completed=2170 loss=0.0047 reference_match=0.924 wait_rate=0.004
+update=69 env_steps=8712 agent_steps=261360 episode=1 ep_completed=1144 total_completed=2214 loss=0.0012 reference_match=0.934 wait_rate=0.004
+update=70 env_steps=8840 agent_steps=265200 episode=1 ep_completed=1183 total_completed=2253 loss=0.0008 reference_match=0.929 wait_rate=0.005
+update=71 env_steps=8968 agent_steps=269040 episode=1 ep_completed=1225 total_completed=2295 loss=0.0028 reference_match=0.925 wait_rate=0.003
+update=72 env_steps=9096 agent_steps=272880 episode=1 ep_completed=1267 total_completed=2337 loss=0.0022 reference_match=0.924 wait_rate=0.007
+update=73 env_steps=9224 agent_steps=276720 episode=1 ep_completed=1307 total_completed=2377 loss=0.0037 reference_match=0.919 wait_rate=0.004
+update=74 env_steps=9352 agent_steps=280560 episode=1 ep_completed=1349 total_completed=2419 loss=0.0019 reference_match=0.928 wait_rate=0.004
+update=75 env_steps=9480 agent_steps=284400 episode=1 ep_completed=1385 total_completed=2455 loss=0.0011 reference_match=0.923 wait_rate=0.005
+update=76 env_steps=9608 agent_steps=288240 episode=1 ep_completed=1430 total_completed=2500 loss=0.0014 reference_match=0.921 wait_rate=0.005
+update=77 env_steps=9736 agent_steps=292080 episode=1 ep_completed=1473 total_completed=2543 loss=0.0021 reference_match=0.925 wait_rate=0.004
+update=78 env_steps=9864 agent_steps=295920 episode=1 ep_completed=1509 total_completed=2579 loss=0.0007 reference_match=0.922 wait_rate=0.007
+update=79 env_steps=9992 agent_steps=299760 episode=1 ep_completed=1553 total_completed=2623 loss=0.0000 reference_match=0.924 wait_rate=0.006
+update=80 env_steps=10000 agent_steps=300000 episode=2 ep_completed=0 total_completed=2625 loss=1.5232 reference_match=0.925 wait_rate=0.004
+
+exit_code: 0

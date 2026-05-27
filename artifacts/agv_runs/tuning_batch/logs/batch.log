@@ -1,0 +1,79 @@
+[2026-05-27 12:29:36] Batch directory: artifacts\agv_runs\tuning_batch_20260527_122936
+[2026-05-27 12:29:36] Python interpreter: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe
+[2026-05-27 12:29:36] Seeds: 0,1,2,3,4
+[2026-05-27 12:29:36] Save GIF: True
+[2026-05-27 12:29:36] Include extended tuning: True
+[2026-05-27 12:29:36] 
+[2026-05-27 12:29:36] ==== Training tune_base ====
+[2026-05-27 12:29:36] params: learning_rate=2.5e-4, entropy_coef=0.035, waypoint_reward=0.03, active_wait_penalty=-0.02, total_steps=300000, training_layout_count=4
+[2026-05-27 12:29:36] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.learning.train_ltf_ppo --total-steps 300000 --agents 30 --horizon 5000 --request-queue-size 10 --training-layout-count 4 --regenerate-training-layout --learning-rate 2.5e-4 --entropy-coef 0.035 --waypoint-reward 0.03 --active-wait-penalty -0.02 --rollout-steps 128 --minibatch-size 1024 --run-dir artifacts\agv_runs\tuning_batch_20260527_122936\tune_base
+[2026-05-27 12:37:58] ==== Evaluating tune_base with seeds 0,1,2,3,4 ====
+[2026-05-27 12:37:58] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.experiments.evaluate_ltf_ppo --controller ltfp --checkpoint artifacts\agv_runs\tuning_batch_20260527_122936\tune_base\checkpoints\ltfp_latest.pt --horizon 5000 --agents 30 --request-queue-size 10 --seeds 0,1,2,3,4 --run-name eval_tune_base_5seeds_gif --render --render-every 1 --save-gif --gif-frame-ms 80
+[2026-05-27 13:25:27] result: mean_completed_tasks=1535.6, std_completed_tasks=41.48059787418691, mean_blocked_moves=5451.2, eval_dir=artifacts\agv_runs\tuning_batch_20260527_122936\tune_base\evals\eval_tune_base_5seeds_gif_20260527_123758
+[2026-05-27 13:25:27] 
+[2026-05-27 13:25:27] ==== Training tune_lr_low ====
+[2026-05-27 13:25:27] params: learning_rate=1.0e-4, entropy_coef=0.035, waypoint_reward=0.03, active_wait_penalty=-0.02, total_steps=300000, training_layout_count=4
+[2026-05-27 13:25:27] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.learning.train_ltf_ppo --total-steps 300000 --agents 30 --horizon 5000 --request-queue-size 10 --training-layout-count 4 --regenerate-training-layout --learning-rate 1.0e-4 --entropy-coef 0.035 --waypoint-reward 0.03 --active-wait-penalty -0.02 --rollout-steps 128 --minibatch-size 1024 --run-dir artifacts\agv_runs\tuning_batch_20260527_122936\tune_lr_low
+[2026-05-27 13:35:27] ==== Evaluating tune_lr_low with seeds 0,1,2,3,4 ====
+[2026-05-27 13:35:27] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.experiments.evaluate_ltf_ppo --controller ltfp --checkpoint artifacts\agv_runs\tuning_batch_20260527_122936\tune_lr_low\checkpoints\ltfp_latest.pt --horizon 5000 --agents 30 --request-queue-size 10 --seeds 0,1,2,3,4 --run-name eval_tune_lr_low_5seeds_gif --render --render-every 1 --save-gif --gif-frame-ms 80
+[2026-05-27 14:28:15] result: mean_completed_tasks=1452.0, std_completed_tasks=21.335416564951338, mean_blocked_moves=5787.6, eval_dir=artifacts\agv_runs\tuning_batch_20260527_122936\tune_lr_low\evals\eval_tune_lr_low_5seeds_gif_20260527_133528
+[2026-05-27 14:28:15] 
+[2026-05-27 14:28:15] ==== Training tune_lr_high ====
+[2026-05-27 14:28:15] params: learning_rate=5.0e-4, entropy_coef=0.035, waypoint_reward=0.03, active_wait_penalty=-0.02, total_steps=300000, training_layout_count=4
+[2026-05-27 14:28:15] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.learning.train_ltf_ppo --total-steps 300000 --agents 30 --horizon 5000 --request-queue-size 10 --training-layout-count 4 --regenerate-training-layout --learning-rate 5.0e-4 --entropy-coef 0.035 --waypoint-reward 0.03 --active-wait-penalty -0.02 --rollout-steps 128 --minibatch-size 1024 --run-dir artifacts\agv_runs\tuning_batch_20260527_122936\tune_lr_high
+[2026-05-27 14:36:46] ==== Evaluating tune_lr_high with seeds 0,1,2,3,4 ====
+[2026-05-27 14:36:46] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.experiments.evaluate_ltf_ppo --controller ltfp --checkpoint artifacts\agv_runs\tuning_batch_20260527_122936\tune_lr_high\checkpoints\ltfp_latest.pt --horizon 5000 --agents 30 --request-queue-size 10 --seeds 0,1,2,3,4 --run-name eval_tune_lr_high_5seeds_gif --render --render-every 1 --save-gif --gif-frame-ms 80
+[2026-05-27 15:29:01] result: mean_completed_tasks=1361.6, std_completed_tasks=107.7749507074812, mean_blocked_moves=7071.2, eval_dir=artifacts\agv_runs\tuning_batch_20260527_122936\tune_lr_high\evals\eval_tune_lr_high_5seeds_gif_20260527_143647
+[2026-05-27 15:29:01] 
+[2026-05-27 15:29:01] ==== Training tune_entropy_low ====
+[2026-05-27 15:29:01] params: learning_rate=2.5e-4, entropy_coef=0.015, waypoint_reward=0.03, active_wait_penalty=-0.02, total_steps=300000, training_layout_count=4
+[2026-05-27 15:29:01] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.learning.train_ltf_ppo --total-steps 300000 --agents 30 --horizon 5000 --request-queue-size 10 --training-layout-count 4 --regenerate-training-layout --learning-rate 2.5e-4 --entropy-coef 0.015 --waypoint-reward 0.03 --active-wait-penalty -0.02 --rollout-steps 128 --minibatch-size 1024 --run-dir artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_low
+[2026-05-27 15:36:19] ==== Evaluating tune_entropy_low with seeds 0,1,2,3,4 ====
+[2026-05-27 15:36:19] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.experiments.evaluate_ltf_ppo --controller ltfp --checkpoint artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_low\checkpoints\ltfp_latest.pt --horizon 5000 --agents 30 --request-queue-size 10 --seeds 0,1,2,3,4 --run-name eval_tune_entropy_low_5seeds_gif --render --render-every 1 --save-gif --gif-frame-ms 80
+[2026-05-27 17:01:32] result: mean_completed_tasks=521.8, std_completed_tasks=326.81946086486346, mean_blocked_moves=61286.8, eval_dir=artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_low\evals\eval_tune_entropy_low_5seeds_gif_20260527_153619
+[2026-05-27 17:01:32] 
+[2026-05-27 17:01:32] ==== Training tune_entropy_high ====
+[2026-05-27 17:01:32] params: learning_rate=2.5e-4, entropy_coef=0.060, waypoint_reward=0.03, active_wait_penalty=-0.02, total_steps=300000, training_layout_count=4
+[2026-05-27 17:01:32] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.learning.train_ltf_ppo --total-steps 300000 --agents 30 --horizon 5000 --request-queue-size 10 --training-layout-count 4 --regenerate-training-layout --learning-rate 2.5e-4 --entropy-coef 0.060 --waypoint-reward 0.03 --active-wait-penalty -0.02 --rollout-steps 128 --minibatch-size 1024 --run-dir artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_high
+[2026-05-27 17:09:21] ==== Evaluating tune_entropy_high with seeds 0,1,2,3,4 ====
+[2026-05-27 17:09:21] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.experiments.evaluate_ltf_ppo --controller ltfp --checkpoint artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_high\checkpoints\ltfp_latest.pt --horizon 5000 --agents 30 --request-queue-size 10 --seeds 0,1,2,3,4 --run-name eval_tune_entropy_high_5seeds_gif --render --render-every 1 --save-gif --gif-frame-ms 80
+[2026-05-27 18:01:39] result: mean_completed_tasks=1532.2, std_completed_tasks=9.21737489744233, mean_blocked_moves=3978.2, eval_dir=artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_high\evals\eval_tune_entropy_high_5seeds_gif_20260527_170921
+[2026-05-27 18:01:39] 
+[2026-05-27 18:01:39] ==== Training tune_reward_mild ====
+[2026-05-27 18:01:39] params: learning_rate=2.5e-4, entropy_coef=0.035, waypoint_reward=0.02, active_wait_penalty=-0.01, total_steps=300000, training_layout_count=4
+[2026-05-27 18:01:39] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.learning.train_ltf_ppo --total-steps 300000 --agents 30 --horizon 5000 --request-queue-size 10 --training-layout-count 4 --regenerate-training-layout --learning-rate 2.5e-4 --entropy-coef 0.035 --waypoint-reward 0.02 --active-wait-penalty -0.01 --rollout-steps 128 --minibatch-size 1024 --run-dir artifacts\agv_runs\tuning_batch_20260527_122936\tune_reward_mild
+[2026-05-27 18:16:05] ==== Evaluating tune_reward_mild with seeds 0,1,2,3,4 ====
+[2026-05-27 18:16:05] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.experiments.evaluate_ltf_ppo --controller ltfp --checkpoint artifacts\agv_runs\tuning_batch_20260527_122936\tune_reward_mild\checkpoints\ltfp_latest.pt --horizon 5000 --agents 30 --request-queue-size 10 --seeds 0,1,2,3,4 --run-name eval_tune_reward_mild_5seeds_gif --render --render-every 1 --save-gif --gif-frame-ms 80
+[2026-05-27 19:10:39] result: mean_completed_tasks=1262.2, std_completed_tasks=29.83554926593442, mean_blocked_moves=2963.2, eval_dir=artifacts\agv_runs\tuning_batch_20260527_122936\tune_reward_mild\evals\eval_tune_reward_mild_5seeds_gif_20260527_181606
+[2026-05-27 19:10:39] 
+[2026-05-27 19:10:39] ==== Training tune_reward_strong ====
+[2026-05-27 19:10:39] params: learning_rate=2.5e-4, entropy_coef=0.035, waypoint_reward=0.05, active_wait_penalty=-0.03, total_steps=300000, training_layout_count=4
+[2026-05-27 19:10:39] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.learning.train_ltf_ppo --total-steps 300000 --agents 30 --horizon 5000 --request-queue-size 10 --training-layout-count 4 --regenerate-training-layout --learning-rate 2.5e-4 --entropy-coef 0.035 --waypoint-reward 0.05 --active-wait-penalty -0.03 --rollout-steps 128 --minibatch-size 1024 --run-dir artifacts\agv_runs\tuning_batch_20260527_122936\tune_reward_strong
+[2026-05-27 19:20:16] ==== Evaluating tune_reward_strong with seeds 0,1,2,3,4 ====
+[2026-05-27 19:20:16] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.experiments.evaluate_ltf_ppo --controller ltfp --checkpoint artifacts\agv_runs\tuning_batch_20260527_122936\tune_reward_strong\checkpoints\ltfp_latest.pt --horizon 5000 --agents 30 --request-queue-size 10 --seeds 0,1,2,3,4 --run-name eval_tune_reward_strong_5seeds_gif --render --render-every 1 --save-gif --gif-frame-ms 80
+[2026-05-27 20:16:08] result: mean_completed_tasks=1484.0, std_completed_tasks=33.370645783382734, mean_blocked_moves=4399.0, eval_dir=artifacts\agv_runs\tuning_batch_20260527_122936\tune_reward_strong\evals\eval_tune_reward_strong_5seeds_gif_20260527_192017
+[2026-05-27 20:16:08] 
+[2026-05-27 20:16:08] ==== Training tune_steps_short ====
+[2026-05-27 20:16:08] params: learning_rate=2.5e-4, entropy_coef=0.035, waypoint_reward=0.03, active_wait_penalty=-0.02, total_steps=150000, training_layout_count=4
+[2026-05-27 20:16:08] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.learning.train_ltf_ppo --total-steps 150000 --agents 30 --horizon 5000 --request-queue-size 10 --training-layout-count 4 --regenerate-training-layout --learning-rate 2.5e-4 --entropy-coef 0.035 --waypoint-reward 0.03 --active-wait-penalty -0.02 --rollout-steps 128 --minibatch-size 1024 --run-dir artifacts\agv_runs\tuning_batch_20260527_122936\tune_steps_short
+[2026-05-27 20:19:51] ==== Evaluating tune_steps_short with seeds 0,1,2,3,4 ====
+[2026-05-27 20:19:51] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.experiments.evaluate_ltf_ppo --controller ltfp --checkpoint artifacts\agv_runs\tuning_batch_20260527_122936\tune_steps_short\checkpoints\ltfp_latest.pt --horizon 5000 --agents 30 --request-queue-size 10 --seeds 0,1,2,3,4 --run-name eval_tune_steps_short_5seeds_gif --render --render-every 1 --save-gif --gif-frame-ms 80
+[2026-05-27 21:16:04] result: mean_completed_tasks=1386.0, std_completed_tasks=72.29384482789665, mean_blocked_moves=5980.2, eval_dir=artifacts\agv_runs\tuning_batch_20260527_122936\tune_steps_short\evals\eval_tune_steps_short_5seeds_gif_20260527_201952
+[2026-05-27 21:16:04] 
+[2026-05-27 21:16:04] ==== Training tune_map_1layout ====
+[2026-05-27 21:16:04] params: learning_rate=2.5e-4, entropy_coef=0.035, waypoint_reward=0.03, active_wait_penalty=-0.02, total_steps=300000, training_layout_count=1
+[2026-05-27 21:16:04] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.learning.train_ltf_ppo --total-steps 300000 --agents 30 --horizon 5000 --request-queue-size 10 --training-layout-count 1 --regenerate-training-layout --learning-rate 2.5e-4 --entropy-coef 0.035 --waypoint-reward 0.03 --active-wait-penalty -0.02 --rollout-steps 128 --minibatch-size 1024 --run-dir artifacts\agv_runs\tuning_batch_20260527_122936\tune_map_1layout
+[2026-05-27 21:37:51] ==== Evaluating tune_map_1layout with seeds 0,1,2,3,4 ====
+[2026-05-27 21:37:51] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.experiments.evaluate_ltf_ppo --controller ltfp --checkpoint artifacts\agv_runs\tuning_batch_20260527_122936\tune_map_1layout\checkpoints\ltfp_latest.pt --horizon 5000 --agents 30 --request-queue-size 10 --seeds 0,1,2,3,4 --run-name eval_tune_map_1layout_5seeds_gif --render --render-every 1 --save-gif --gif-frame-ms 80
+[2026-05-27 22:50:22] result: mean_completed_tasks=865.8, std_completed_tasks=479.2975693658377, mean_blocked_moves=34880.0, eval_dir=artifacts\agv_runs\tuning_batch_20260527_122936\tune_map_1layout\evals\eval_tune_map_1layout_5seeds_gif_20260527_213752
+[2026-05-27 22:50:22] 
+[2026-05-27 22:50:22] ==== Training tune_map_6layouts ====
+[2026-05-27 22:50:22] params: learning_rate=2.5e-4, entropy_coef=0.035, waypoint_reward=0.03, active_wait_penalty=-0.02, total_steps=300000, training_layout_count=6
+[2026-05-27 22:50:22] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.learning.train_ltf_ppo --total-steps 300000 --agents 30 --horizon 5000 --request-queue-size 10 --training-layout-count 6 --regenerate-training-layout --learning-rate 2.5e-4 --entropy-coef 0.035 --waypoint-reward 0.03 --active-wait-penalty -0.02 --rollout-steps 128 --minibatch-size 1024 --run-dir artifacts\agv_runs\tuning_batch_20260527_122936\tune_map_6layouts
+[2026-05-27 23:01:42] ==== Evaluating tune_map_6layouts with seeds 0,1,2,3,4 ====
+[2026-05-27 23:01:42] command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.experiments.evaluate_ltf_ppo --controller ltfp --checkpoint artifacts\agv_runs\tuning_batch_20260527_122936\tune_map_6layouts\checkpoints\ltfp_latest.pt --horizon 5000 --agents 30 --request-queue-size 10 --seeds 0,1,2,3,4 --run-name eval_tune_map_6layouts_5seeds_gif --render --render-every 1 --save-gif --gif-frame-ms 80
+[2026-05-28 00:08:00] result: mean_completed_tasks=1173.6, std_completed_tasks=236.01321996871278, mean_blocked_moves=16737.0, eval_dir=artifacts\agv_runs\tuning_batch_20260527_122936\tune_map_6layouts\evals\eval_tune_map_6layouts_5seeds_gif_20260527_230142
+[2026-05-28 00:08:00] 
+[2026-05-28 00:08:00] ==== All tuning runs finished ====
+[2026-05-28 00:08:00] Summary CSV: artifacts\agv_runs\tuning_batch_20260527_122936\tuning_summary.csv
+[2026-05-28 00:08:00] Seed-level CSV: artifacts\agv_runs\tuning_batch_20260527_122936\tuning_seed_results.csv

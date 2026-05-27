@@ -1,0 +1,98 @@
+command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.experiments.evaluate_ltf_ppo --controller ltfp --checkpoint artifacts\agv_runs\tuning_batch_20260527_122936\tune_base\checkpoints\ltfp_latest.pt --horizon 5000 --agents 30 --request-queue-size 10 --seeds 0,1,2,3,4 --run-name eval_tune_base_5seeds_gif --render --render-every 1 --save-gif --gif-frame-ms 80
+
+C:\Users\WYX\.conda\envs\agv-drl-rware\Lib\site-packages\gymnasium\spaces\box.py:231: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\WYX\.conda\envs\agv-drl-rware\Lib\site-packages\gymnasium\spaces\box.py:297: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\WYX\.conda\envs\agv-drl-rware\Lib\site-packages\gymnasium\spaces\box.py:231: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\WYX\.conda\envs\agv-drl-rware\Lib\site-packages\gymnasium\spaces\box.py:297: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+Evaluation run directory: artifacts\agv_runs\tuning_batch_20260527_122936\tune_base\evals\eval_tune_base_5seeds_gif_20260527_123758
+Checkpoint: artifacts\agv_runs\tuning_batch_20260527_122936\tune_base\checkpoints\ltfp_latest.pt
+Policy action selection: stochastic sampling
+RWARE load/unload handling: task state machine forces required TOGGLE_LOAD; the neural policy outputs only grid-move intents.
+seed=0 completed=1580 delivered=1594 blocked=4517
+seed=1 completed=1563 delivered=1576 blocked=5016
+seed=2 completed=1539 delivered=1553 blocked=5732
+seed=3 completed=1459 delivered=1476 blocked=6128
+seed=4 completed=1537 delivered=1550 blocked=5863
+{
+  "controller": "ltfp",
+  "policy_seed": 0,
+  "checkpoint": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_base\\checkpoints\\ltfp_latest.pt",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "mean_completed_tasks": 1535.6,
+  "std_completed_tasks": 41.48059787418691,
+  "rows": [
+    {
+      "seed": 0,
+      "steps": 5000,
+      "completed_tasks": 1580,
+      "delivered_to_goal": 1594,
+      "generated_tasks": 1620,
+      "mean_agent_reward": 120.61416634828396,
+      "blocked_moves": 4517,
+      "policy_actions": 146811,
+      "forced_toggles": 3189,
+      "gif_path": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_base\\evals\\eval_tune_base_5seeds_gif_20260527_123758\\gifs\\ltfp_seed0.gif"
+    },
+    {
+      "seed": 1,
+      "steps": 5000,
+      "completed_tasks": 1563,
+      "delivered_to_goal": 1576,
+      "generated_tasks": 1602,
+      "mean_agent_reward": 118.60183303478794,
+      "blocked_moves": 5016,
+      "policy_actions": 146847,
+      "forced_toggles": 3153,
+      "gif_path": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_base\\evals\\eval_tune_base_5seeds_gif_20260527_123758\\gifs\\ltfp_seed1.gif"
+    },
+    {
+      "seed": 2,
+      "steps": 5000,
+      "completed_tasks": 1539,
+      "delivered_to_goal": 1553,
+      "generated_tasks": 1579,
+      "mean_agent_reward": 117.15133301248619,
+      "blocked_moves": 5732,
+      "policy_actions": 146892,
+      "forced_toggles": 3108,
+      "gif_path": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_base\\evals\\eval_tune_base_5seeds_gif_20260527_123758\\gifs\\ltfp_seed2.gif"
+    },
+    {
+      "seed": 3,
+      "steps": 5000,
+      "completed_tasks": 1459,
+      "delivered_to_goal": 1476,
+      "generated_tasks": 1499,
+      "mean_agent_reward": 111.28849968367334,
+      "blocked_moves": 6128,
+      "policy_actions": 147052,
+      "forced_toggles": 2948,
+      "gif_path": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_base\\evals\\eval_tune_base_5seeds_gif_20260527_123758\\gifs\\ltfp_seed3.gif"
+    },
+    {
+      "seed": 4,
+      "steps": 5000,
+      "completed_tasks": 1537,
+      "delivered_to_goal": 1550,
+      "generated_tasks": 1575,
+      "mean_agent_reward": 116.48133302777617,
+      "blocked_moves": 5863,
+      "policy_actions": 146902,
+      "forced_toggles": 3098,
+      "gif_path": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_base\\evals\\eval_tune_base_5seeds_gif_20260527_123758\\gifs\\ltfp_seed4.gif"
+    }
+  ]
+}
+Wrote artifacts\agv_runs\tuning_batch_20260527_122936\tune_base\evals\eval_tune_base_5seeds_gif_20260527_123758\eval_ltfp.csv, artifacts\agv_runs\tuning_batch_20260527_122936\tune_base\evals\eval_tune_base_5seeds_gif_20260527_123758\summary_ltfp.json, and artifacts\agv_runs\tuning_batch_20260527_122936\tune_base\evals\eval_tune_base_5seeds_gif_20260527_123758\eval_config.json
+
+exit_code: 0

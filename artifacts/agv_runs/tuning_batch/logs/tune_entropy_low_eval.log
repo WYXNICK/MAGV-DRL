@@ -1,0 +1,98 @@
+command: C:\Users\WYX\.conda\envs\agv-drl-rware\python.exe -m agv_drl.experiments.evaluate_ltf_ppo --controller ltfp --checkpoint artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_low\checkpoints\ltfp_latest.pt --horizon 5000 --agents 30 --request-queue-size 10 --seeds 0,1,2,3,4 --run-name eval_tune_entropy_low_5seeds_gif --render --render-every 1 --save-gif --gif-frame-ms 80
+
+C:\Users\WYX\.conda\envs\agv-drl-rware\Lib\site-packages\gymnasium\spaces\box.py:231: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\WYX\.conda\envs\agv-drl-rware\Lib\site-packages\gymnasium\spaces\box.py:297: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\WYX\.conda\envs\agv-drl-rware\Lib\site-packages\gymnasium\spaces\box.py:231: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+C:\Users\WYX\.conda\envs\agv-drl-rware\Lib\site-packages\gymnasium\spaces\box.py:297: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+Evaluation run directory: artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_low\evals\eval_tune_entropy_low_5seeds_gif_20260527_153619
+Checkpoint: artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_low\checkpoints\ltfp_latest.pt
+Policy action selection: stochastic sampling
+RWARE load/unload handling: task state machine forces required TOGGLE_LOAD; the neural policy outputs only grid-move intents.
+seed=0 completed=321 delivered=321 blocked=70840
+seed=1 completed=822 delivered=822 blocked=46228
+seed=2 completed=164 delivered=164 blocked=79713
+seed=3 completed=303 delivered=303 blocked=73067
+seed=4 completed=999 delivered=999 blocked=36586
+{
+  "controller": "ltfp",
+  "policy_seed": 0,
+  "checkpoint": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_entropy_low\\checkpoints\\ltfp_latest.pt",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "mean_completed_tasks": 521.8,
+  "std_completed_tasks": 326.81946086486346,
+  "rows": [
+    {
+      "seed": 0,
+      "steps": 5000,
+      "completed_tasks": 321,
+      "delivered_to_goal": 321,
+      "generated_tasks": 361,
+      "mean_agent_reward": -25.509166021315227,
+      "blocked_moves": 70840,
+      "policy_actions": 149328,
+      "forced_toggles": 672,
+      "gif_path": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_entropy_low\\evals\\eval_tune_entropy_low_5seeds_gif_20260527_153619\\gifs\\ltfp_seed0.gif"
+    },
+    {
+      "seed": 1,
+      "steps": 5000,
+      "completed_tasks": 822,
+      "delivered_to_goal": 822,
+      "generated_tasks": 862,
+      "mean_agent_reward": 31.13583363776949,
+      "blocked_moves": 46228,
+      "policy_actions": 148326,
+      "forced_toggles": 1674,
+      "gif_path": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_entropy_low\\evals\\eval_tune_entropy_low_5seeds_gif_20260527_153619\\gifs\\ltfp_seed1.gif"
+    },
+    {
+      "seed": 2,
+      "steps": 5000,
+      "completed_tasks": 164,
+      "delivered_to_goal": 164,
+      "generated_tasks": 204,
+      "mean_agent_reward": -44.41716587570651,
+      "blocked_moves": 79713,
+      "policy_actions": 149642,
+      "forced_toggles": 358,
+      "gif_path": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_entropy_low\\evals\\eval_tune_entropy_low_5seeds_gif_20260527_153619\\gifs\\ltfp_seed2.gif"
+    },
+    {
+      "seed": 3,
+      "steps": 5000,
+      "completed_tasks": 303,
+      "delivered_to_goal": 303,
+      "generated_tasks": 343,
+      "mean_agent_reward": -28.303332660607218,
+      "blocked_moves": 73067,
+      "policy_actions": 149364,
+      "forced_toggles": 636,
+      "gif_path": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_entropy_low\\evals\\eval_tune_entropy_low_5seeds_gif_20260527_153619\\gifs\\ltfp_seed3.gif"
+    },
+    {
+      "seed": 4,
+      "steps": 5000,
+      "completed_tasks": 999,
+      "delivered_to_goal": 999,
+      "generated_tasks": 1039,
+      "mean_agent_reward": 52.55983346786427,
+      "blocked_moves": 36586,
+      "policy_actions": 147972,
+      "forced_toggles": 2028,
+      "gif_path": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_entropy_low\\evals\\eval_tune_entropy_low_5seeds_gif_20260527_153619\\gifs\\ltfp_seed4.gif"
+    }
+  ]
+}
+Wrote artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_low\evals\eval_tune_entropy_low_5seeds_gif_20260527_153619\eval_ltfp.csv, artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_low\evals\eval_tune_entropy_low_5seeds_gif_20260527_153619\summary_ltfp.json, and artifacts\agv_runs\tuning_batch_20260527_122936\tune_entropy_low\evals\eval_tune_entropy_low_5seeds_gif_20260527_153619\eval_config.json
+
+exit_code: 0

@@ -238,7 +238,7 @@ rows[].completed_tasks
 
 ## 5. 一次性运行全部调参训练、5 seeds 评测并保存 GIF
 
-下面的 PowerShell 脚本会依次训练 7 组参数，并在每组训练完成后自动找到该组最新 checkpoint，随后执行 5 seeds 评测并保存 GIF。所有实验固定使用：
+下面的 Python 脚本会依次训练 7 组参数，并在每组训练完成后自动找到该组最新 checkpoint，随后执行 5 seeds 评测并保存 GIF。所有实验固定使用：
 
 ```text
 agents              30
@@ -350,3 +350,34 @@ mean blocked_moves
 其中 `tuning_summary.csv` 会自动汇总每组参数和 5 seeds 评测结果，包括 `total_steps` 和 `training_layout_count`；`logs/batch.log` 记录完整批次流程；`logs/*_train.log` 和 `logs/*_eval.log` 分别保存每组训练和评测的完整终端输出。
 
 注意：该脚本默认会训练 7 个 300000-step 模型，并为每个模型保存 5 个 5000-step GIF，运行时间和磁盘占用都比较大。如果只是快速筛选参数，可以先使用 `--total-steps 100000 --no-gif`；最终报告用的模型再按完整命令运行。
+
+## 6. 绘制调参结果对比图
+
+调参脚本运行结束后，可以直接用下面的脚本从 `tuning_seed_results.csv` 生成论文风格对比图。图中的误差棒表示 5 个 seed 的标准差，同时会叠加每个 seed 的散点。脚本还会读取 `artifacts/agv_runs/eval_planner_5seeds/summary_planner.json`，额外生成 planner baseline 与标准 LTF-PPO 的对比图。
+
+以当前结果目录为例：
+
+```powershell
+python scripts/plot_tuning_results.py `
+  --batch-dir artifacts\agv_runs\tuning_batch
+```
+
+输出目录：
+
+```text
+artifacts/figures/
+```
+
+会生成以下 PNG 图：
+
+```text
+comparison_learning_rate     学习率调参对比
+comparison_entropy           熵系数 / 探索强度调参对比
+comparison_reward            奖励设计调参对比
+comparison_training_layouts  训练地图数量调参对比
+comparison_training_steps    训练步数调参对比
+overall_tuning_comparison    所有参数组合总览对比
+planner_baseline_vs_ltfp_standard  planner baseline 与标准 LTF-PPO 对比
+```
+
+PNG 分辨率较高，可以直接插入 Word、PowerPoint 或课程报告。正式分析时建议优先展示 `planner_baseline_vs_ltfp_standard` 说明强化学习 follower 相对规则 baseline 的提升，再展示每类参数的一张对比图，最后给出 `overall_tuning_comparison` 作为总览。

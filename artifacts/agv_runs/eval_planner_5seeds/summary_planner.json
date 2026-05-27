@@ -1,0 +1,76 @@
+{
+  "controller": "planner",
+  "policy_seed": 0,
+  "checkpoint": null,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "mean_completed_tasks": 385.0,
+  "std_completed_tasks": 173.24779940882365,
+  "rows": [
+    {
+      "seed": 0,
+      "steps": 5000,
+      "completed_tasks": 219,
+      "delivered_to_goal": 219,
+      "generated_tasks": 259,
+      "mean_agent_reward": 10.115666457956346,
+      "blocked_moves": 4598,
+      "policy_actions": 0,
+      "forced_toggles": 0,
+      "gif_path": "artifacts\\agv_runs\\eval_planner_5seeds_20260527_101234\\gifs\\planner_seed0.gif"
+    },
+    {
+      "seed": 1,
+      "steps": 5000,
+      "completed_tasks": 510,
+      "delivered_to_goal": 510,
+      "generated_tasks": 550,
+      "mean_agent_reward": 31.666333134596545,
+      "blocked_moves": 7450,
+      "policy_actions": 0,
+      "forced_toggles": 0,
+      "gif_path": "artifacts\\agv_runs\\eval_planner_5seeds_20260527_101234\\gifs\\planner_seed1.gif"
+    },
+    {
+      "seed": 2,
+      "steps": 5000,
+      "completed_tasks": 188,
+      "delivered_to_goal": 188,
+      "generated_tasks": 228,
+      "mean_agent_reward": 4.297499846686454,
+      "blocked_moves": 9470,
+      "policy_actions": 0,
+      "forced_toggles": 0,
+      "gif_path": "artifacts\\agv_runs\\eval_planner_5seeds_20260527_101234\\gifs\\planner_seed2.gif"
+    },
+    {
+      "seed": 3,
+      "steps": 5000,
+      "completed_tasks": 645,
+      "delivered_to_goal": 645,
+      "generated_tasks": 685,
+      "mean_agent_reward": 43.99533308581061,
+      "blocked_moves": 6475,
+      "policy_actions": 0,
+      "forced_toggles": 0,
+      "gif_path": "artifacts\\agv_runs\\eval_planner_5seeds_20260527_101234\\gifs\\planner_seed3.gif"
+    },
+    {
+      "seed": 4,
+      "steps": 5000,
+      "completed_tasks": 363,
+      "delivered_to_goal": 363,
+      "generated_tasks": 403,
+      "mean_agent_reward": 19.375666480363968,
+      "blocked_moves": 8438,
+      "policy_actions": 0,
+      "forced_toggles": 0,
+      "gif_path": "artifacts\\agv_runs\\eval_planner_5seeds_20260527_101234\\gifs\\planner_seed4.gif"
+    }
+  ]
+}

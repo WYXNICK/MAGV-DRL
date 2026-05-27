@@ -1,0 +1,76 @@
+{
+  "controller": "ltfp",
+  "policy_seed": 0,
+  "checkpoint": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_lr_high\\checkpoints\\ltfp_latest.pt",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "mean_completed_tasks": 1361.6,
+  "std_completed_tasks": 107.7749507074812,
+  "rows": [
+    {
+      "seed": 0,
+      "steps": 5000,
+      "completed_tasks": 1414,
+      "delivered_to_goal": 1429,
+      "generated_tasks": 1453,
+      "mean_agent_reward": 106.94433304025637,
+      "blocked_moves": 5951,
+      "policy_actions": 147147,
+      "forced_toggles": 2853,
+      "gif_path": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_lr_high\\evals\\eval_tune_lr_high_5seeds_gif_20260527_143647\\gifs\\ltfp_seed0.gif"
+    },
+    {
+      "seed": 1,
+      "steps": 5000,
+      "completed_tasks": 1147,
+      "delivered_to_goal": 1159,
+      "generated_tasks": 1185,
+      "mean_agent_reward": 80.73616653524029,
+      "blocked_moves": 11496,
+      "policy_actions": 147681,
+      "forced_toggles": 2319,
+      "gif_path": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_lr_high\\evals\\eval_tune_lr_high_5seeds_gif_20260527_143647\\gifs\\ltfp_seed1.gif"
+    },
+    {
+      "seed": 2,
+      "steps": 5000,
+      "completed_tasks": 1408,
+      "delivered_to_goal": 1415,
+      "generated_tasks": 1448,
+      "mean_agent_reward": 106.67699969655368,
+      "blocked_moves": 5925,
+      "policy_actions": 147155,
+      "forced_toggles": 2845,
+      "gif_path": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_lr_high\\evals\\eval_tune_lr_high_5seeds_gif_20260527_143647\\gifs\\ltfp_seed2.gif"
+    },
+    {
+      "seed": 3,
+      "steps": 5000,
+      "completed_tasks": 1405,
+      "delivered_to_goal": 1423,
+      "generated_tasks": 1445,
+      "mean_agent_reward": 106.94233302380114,
+      "blocked_moves": 5888,
+      "policy_actions": 147160,
+      "forced_toggles": 2840,
+      "gif_path": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_lr_high\\evals\\eval_tune_lr_high_5seeds_gif_20260527_143647\\gifs\\ltfp_seed3.gif"
+    },
+    {
+      "seed": 4,
+      "steps": 5000,
+      "completed_tasks": 1434,
+      "delivered_to_goal": 1447,
+      "generated_tasks": 1474,
+      "mean_agent_reward": 107.98483304799302,
+      "blocked_moves": 6096,
+      "policy_actions": 147108,
+      "forced_toggles": 2892,
+      "gif_path": "artifacts\\agv_runs\\tuning_batch_20260527_122936\\tune_lr_high\\evals\\eval_tune_lr_high_5seeds_gif_20260527_143647\\gifs\\ltfp_seed4.gif"
+    }
+  ]
+}

@@ -20,7 +20,9 @@
 git clone https://github.com/semitable/robotic-warehouse.git robotic-warehouse
 ```
 
-`agv_drl.project_paths` 会自动把该目录加入 Python import path，后续模块通过 `from rware.warehouse import ...` 使用 RWARE 原生环境。当前代码不直接 import `learn-to-follow` 仓库；实现采用其“planner 给路径、learnable follower 学局部跟随”的方法思想，并适配到 RWARE 三阶段搬运任务。
+`agv_drl.project_paths` 会自动把该目录加入 Python import path，后续模块通过 `from rware.warehouse import ...` 使用 RWARE 原生环境。
+
+当前代码不直接 import `learn-to-follow` 仓库中的 SampleFactory/APPO 或 C++ Follower 模块，而是在 `agv_drl` 内实现一个面向 RWARE 三阶段搬运任务的自包含适配版。适配遵循 Learn-to-Follow 的核心结构：启发式 planner 为每个 agent 构造长期参考路径，learnable follower 根据局部观测和路径叠加信息输出局部移动意图，用于解决拥堵、等待和局部避碰问题。这样做的原因是课程任务不仅是 lifelong MAPF，还包含 RWARE 的货架装卸、送达工作站、返回原始库位卸货和任务调度逻辑，原始 `learn-to-follow` 的 Pogema 接口不能直接表达完整搬运闭环。
 
 ## 1. 总体结构
 
@@ -49,6 +51,8 @@ agv_drl/
 - `TaskManager` 负责随机任务流、AGV 与货架匹配、任务阶段切换和 `completed_tasks` 计数。
 - `PrioritizedAStarController` 负责根据当前任务阶段生成 reference path。
 - PPO local follower 只根据局部观测和 reference path，输出 `WAIT / UP / DOWN / LEFT / RIGHT` 五类移动意图。
+
+其中 `TaskManager` 和 A* planner 是任务建模与参考路径层，负责把课程要求中的“识别任务、分配 AGV、取货架、送到目标、返回原位”转成可执行目标；PPO follower 是深度强化学习部分，负责在 RWARE 碰撞机制下学习如何更好地沿参考路径移动。PPO 不直接修改任务定义，也不决定一个任务是否完成。
 
 ## 2. RWARE 环境配置
 
@@ -79,6 +83,8 @@ RWARE 原生运动规则保留：
 - RWARE primitive actions 包括 `NOOP / FORWARD / LEFT / RIGHT / TOGGLE_LOAD`。
 
 当前实现没有设置最大同时执行任务数。`request_queue_size=10` 只表示 pending 随机请求队列大小；已分配任务从 pending 队列中移除，active task 的自然上限是 AGV 数量 30。
+
+`request_queue_size` 是固定随机任务生成策略的一部分。它控制环境中同时暴露给调度器的 pending requested shelves 数量，而不是限制同时工作的 AGV 数。为了公平比较，planner baseline、LTF-PPO 和不同调参实验必须使用相同的 `request_queue_size`。
 
 ## 3. 一次完整任务的定义
 
@@ -187,6 +193,8 @@ A* 还维护一个局部动态代价图。邻近其它 AGV 的格子会逐步增
 在 planner baseline 中，`reserve_dynamic=True`，planner 会做简单的一步 reservation，避免同一时刻多个 AGV 选择同一 next cell 或对向交换。  
 在 LTF-PPO 中，`reserve_dynamic=False`，A* reference path 不硬性禁止穿过其它 AGV，更接近 Learn-to-Follow 的设定：planner 给参考路径，局部冲突由 learnable follower 和 RWARE 环境处理。
 
+因此，`--controller planner` 是一个“不加载 PPO follower 的规则 baseline / 诊断基线”，不是 Learn-to-Follow 论文中的 neural follower。它保留任务状态机、匈牙利任务匹配、A* 和一阶 reservation，目的是提供一个偏强的非学习对照。如果训练后的 LTF-PPO 在相同地图、AGV 数、随机任务队列和 5000 steps 下仍优于该 baseline，说明学习型 follower 对局部拥堵处理确实有贡献。
+
 ## 7. Learn-to-Follow PPO Follower
 
 PPO follower 不直接输出 RWARE primitive action，而是输出 Learn-to-Follow 风格的局部移动意图：
@@ -231,7 +239,7 @@ dist = Categorical(logits=logits)
 actions = dist.sample()
 ```
 
-没有 deterministic argmax，也没有 action mask、expert mix 或行为克隆参数。
+没有 deterministic argmax，也没有 action mask、expert mix 或行为克隆参数。评测时每个 seed 会同时影响 RWARE 初始 AGV 位置/朝向、随机任务队列、随机 destination，以及 PPO stochastic policy 的采样序列。
 
 ## 8. RWARE Action 转换
 
@@ -307,6 +315,8 @@ maps/train_maps/train_map_similar_03.txt
 
 训练时每个 episode 按顺序轮换这些训练地图。这样既符合“构建训练用地图”的要求，也避免直接在最终测试地图上训练。
 
+如果需要展示“在给定地图上训练和调参”的额外对照，也可以用 `--layout-file maps/course_map.txt` 直接在课程地图训练；但标准设置把 `course_map.txt` 作为最终评测地图，把训练地图作为与其结构相似但不完全相同的构造地图，以减少只记住固定地图细节的风险。
+
 ## 11. 训练与评测参数
 
 标准训练参数：
@@ -335,11 +345,23 @@ hidden_size         256
 maps/course_map.txt
 30 AGV
 5000 environment steps
-seed 0
+seed 0 或 0,1,2,3,4
 stochastic policy sampling
 ```
 
-`seed` 会影响 RWARE 初始 AGV 位置、朝向、随机任务队列和随机 destination 选择。为了课程要求中的固定随机生成策略，正式比较时应报告使用的 seed。
+`seed` 会影响 RWARE 初始 AGV 位置、朝向、随机任务队列和随机 destination 选择。为了课程要求中的固定随机生成策略，正式比较时应报告使用的 seed；为了满足“Results are stable across multiple runs”，建议同时报告 5 个 seed 的 `completed_tasks`、均值和标准差。
+
+课程要求的核心评价指标是 `completed_tasks`，即 5000 steps 内完成完整闭环任务的数量。辅助分析指标包括：
+
+```text
+delivered_to_goal     只送到工作站的中间次数，不等于完整任务完成
+generated_tasks       随机任务流产生过的任务数
+blocked_moves         FORWARD 因碰撞/阻塞失败的次数
+mean_agent_reward     训练用 shaped reward 的均值，仅作辅助观察
+std_completed_tasks   多 seed 稳定性
+```
+
+正式比较时应优先看 `completed_tasks`；其它指标用于解释为什么某个策略更稳定或更容易拥堵。
 
 ## 12. 结果文件说明
 

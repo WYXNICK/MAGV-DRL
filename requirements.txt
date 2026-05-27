@@ -11,6 +11,9 @@ six>=1.16,<2.0
 # GIF export for evaluation visualization.
 Pillow>=10.0,<12.0
 
+# Publication-quality result figures.
+matplotlib>=3.8,<3.11
+
 # Local RWARE environment. Clone https://github.com/semitable/robotic-warehouse
 # into ./robotic-warehouse before running pip install -r requirements.txt.
 -e ./robotic-warehouse

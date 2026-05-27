@@ -1,0 +1,6 @@
+seed,steps,completed_tasks,delivered_to_goal,generated_tasks,mean_agent_reward,blocked_moves,policy_actions,forced_toggles,gif_path
+0,5000,936,936,976,56.64950005058199,22233,148098,1902,artifacts\agv_runs\tuning_batch_20260527_122936\tune_map_6layouts\evals\eval_tune_map_6layouts_5seeds_gif_20260527_230142\gifs\ltfp_seed0.gif
+1,5000,1109,1118,1149,71.77333332278067,19584,147753,2247,artifacts\agv_runs\tuning_batch_20260527_122936\tune_map_6layouts\evals\eval_tune_map_6layouts_5seeds_gif_20260527_230142\gifs\ltfp_seed1.gif
+2,5000,1119,1128,1157,73.82283326889932,19090,147738,2262,artifacts\agv_runs\tuning_batch_20260527_122936\tune_map_6layouts\evals\eval_tune_map_6layouts_5seeds_gif_20260527_230142\gifs\ltfp_seed2.gif
+3,5000,1077,1095,1117,72.24949993900955,17661,147818,2182,artifacts\agv_runs\tuning_batch_20260527_122936\tune_map_6layouts\evals\eval_tune_map_6layouts_5seeds_gif_20260527_230142\gifs\ltfp_seed3.gif
+4,5000,1627,1640,1667,123.60766635141724,5117,146720,3280,artifacts\agv_runs\tuning_batch_20260527_122936\tune_map_6layouts\evals\eval_tune_map_6layouts_5seeds_gif_20260527_230142\gifs\ltfp_seed4.gif
