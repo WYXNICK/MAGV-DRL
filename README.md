@@ -278,6 +278,27 @@ waypoint_reward     +0.03   到达 planner 下一 waypoint
 active_wait_penalty -0.02   有 active task 时主动 WAIT
 ```
 
+这些 reward 的设计依据不是让 PPO 重新定义仓储任务，而是把课程任务的目标分解成更密集、更容易学习的局部反馈。RWARE 原生任务回报比较稀疏，如果只在完整任务闭环时给奖励，30 台 AGV 在长路径、拥堵、装卸货和返回原位的组合任务中很难稳定学到“哪一步动作有帮助”。因此当前实现采用分层 shaped reward：
+
+1. 完整任务闭环是最高优先级。`completed_return=+1.00` 只在货架已经送达目标点、又被同一 AGV 驮回原始库位并成功卸下后给出，直接对应课程要求中的 `completed_tasks`。
+2. 阶段性事件提供中间学习信号。`pickup=+0.15` 鼓励 AGV 完成取货架阶段，`delivered_to_goal=+0.40` 鼓励载货到达目标工作站，但它们都小于完整返回奖励，避免策略只学会“送到 G”而忽略返回原位。
+3. 路径推进奖励只作为辅助。`progress_delta` 根据当前任务阶段目标的曼哈顿距离变化给小额奖励，帮助 follower 理解沿参考路径前进通常是有益的；系数 `0.015` 较小，避免它压过真正的任务完成奖励。
+4. Learn-to-Follow 辅助项鼓励局部跟随。`waypoint_reward=+0.03` 在 agent 到达 planner 给出的下一 waypoint 时给奖励，作用是把 A* reference path 转成 dense learning signal，让 PPO 学会跟随局部路径，而不是从零学习全局导航。
+5. 等待和错误动作只给小惩罚。`active_wait_penalty=-0.02` 用于抑制有任务时无意义等待；`blocked_forward=-0.02` 和 `wrong_toggle=-0.01` 用于减少撞墙/拥堵前进和错误装卸。惩罚保持较小，是因为在多 AGV 场景中等待有时是合理避让行为，不能把所有等待都强烈惩罚。
+6. `step=-0.001` 是很小的时间成本，用于鼓励尽快完成任务，但不会主导策略。
+
+因此，reward 的总体原则是：完整闭环任务奖励最大，阶段性事件次之，路径跟随和进度改善提供密集辅助，碰撞、错误装卸和无意义等待提供轻微约束。这样既符合课程评分中的 `completed_tasks` 指标，又符合 Learn-to-Follow 中“planner 给参考路径，learnable follower 学局部执行”的方法定位。
+
+调参实验中的 mild / base / strong reward 也是围绕这个依据设置的：
+
+```text
+mild   waypoint_reward=0.02, active_wait_penalty=-0.01
+base   waypoint_reward=0.03, active_wait_penalty=-0.02
+strong waypoint_reward=0.05, active_wait_penalty=-0.03
+```
+
+它们用于验证“路径跟随奖励”和“主动等待惩罚”的强度是否合适。当前结果中 base 的平均完成数最高，说明 `+0.03 / -0.02` 在推进效率和必要等待之间取得了较好的平衡；过弱时 follower 对参考路径跟随不够积极，过强时可能减少合理等待，反而影响拥堵场景下的协作。
+
 PPO loss 形式：
 
 ```text
